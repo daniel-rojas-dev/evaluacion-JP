@@ -1,0 +1,38 @@
+name: Compilar Proyectos IUTAR
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v3
+
+      - name: Instalar Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.15.2'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_mingw81'
+
+      - name: Compilar Ejercicio Boton
+        run: |
+          cd boton
+          qmake boton.pro
+          mingw32-make
+          
+      - name: Compilar Ejercicio Calculadora
+        run: |
+          cd calculadora
+          qmake calculadora.pro
+          mingw32-make
+
+      - name: Guardar Ejecutables (Artifacts)
+        uses: actions/upload-artifact@v3
+        with:
+          name: Entregable_Daniel_Rojas
+          path: |
+            boton/release/*.exe
+            calculadora/release/*.exe

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle"><string>Ejercicio 1 - IUTAR</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry"><rect><x>100</x><y>80</y><width>100</width><height>30</height></rect></property>
+    <property name="text"><string>Presióname</string></property>
+   </widget>
+  </widget>
+ </widget>
+</ui>
